@@ -1,42 +1,146 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+:root {
+  /* From your logo */
+  --bg: #f5f1e8;        /* warm beige */
+  --text: #111111;      /* near black */
+  --muted: #6b7280;     /* soft gray */
+  --accent: #2156d8;    /* blue circle */
+  --border-subtle: rgba(148, 163, 184, 0.35);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.page {
+  min-height: 100vh;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Centered content card (very subtle) */
+
+.card {
+  width: 100%;
+  max-width: 520px;
+  padding: 2.5rem 2rem 2.25rem;
+  border-radius: 1.25rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Wordmark inspired by your logo */
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin-bottom: 0.25rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.wordmark-main {
+  font-size: 2.9rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-transform: lowercase;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.wordmark-dot {
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 999px;
+  background-color: var(--accent);
 }
 
-.card {
-  padding: 2em;
+.wordmark-sub {
+  font-size: 0.95rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
 }
 
-.read-the-docs {
-  color: #888;
+/* Coming soon text */
+
+.coming-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.coming-text {
+  margin: 0 0 1.75rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* Social links */
+
+.social-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  background-color: #ffffff;
+  color: var(--text);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    transform 0.1s ease, background-color 0.15s ease;
+}
+
+.social-pill:hover {
+  border-color: var(--accent);
+  background-color: rgba(33, 86, 216, 0.05);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+  transform: translateY(-1px);
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background-color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+/* Footer */
+
+.footer {
+  margin-top: 1.75rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  opacity: 0.9;
+  text-align: center;
 }
