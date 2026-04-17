@@ -15,9 +15,9 @@ module.exports = {
         'border-hover': '#333333',
         muted: '#888888',
         accent: {
-          DEFAULT: '#7c3aed',
-          hover: '#6d28d9',
-          light: '#a78bfa',
+          DEFAULT: '#2B47CC',
+          hover: '#2338A8',
+          light: '#6B8EF0',
         },
       },
       fontFamily: {

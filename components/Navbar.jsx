@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useSession, signOut } from 'next-auth/react'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { Menu, X, Zap } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
 
 const navLinks = [
@@ -23,11 +23,15 @@ export default function Navbar() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex h-14 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-accent group-hover:bg-accent-hover transition-colors">
-              <Zap size={14} className="text-white" />
-            </div>
-            <span className="font-semibold text-white tracking-tight">Pluto</span>
+          <Link href="/" className="flex items-center group">
+            <span className="text-xl font-black text-white tracking-tight leading-none">plut</span>
+            <span
+              className="inline-block w-[18px] h-[18px] rounded-full bg-[#2B47CC] group-hover:bg-[#2338A8] transition-colors mb-[1px] ml-[1px]"
+              aria-hidden="true"
+            />
+            <span className="ml-1.5 text-[9px] font-semibold tracking-[0.2em] text-[#555] uppercase self-end mb-[3px]">
+              Marketing
+            </span>
           </Link>
 
           {/* Desktop nav */}

@@ -34,13 +34,13 @@ const services = [
   {
     icon: BarChart,
     title: 'Analytics Review',
-    description: 'Understand what's working and double down on winning content.',
+    description: "Understand what's working and double down on winning content.",
     tag: null,
   },
   {
     icon: Palette,
     title: 'Brand Voice',
-    description: 'Define your brand's tone and maintain consistency across all content.',
+    description: "Define your brand's tone and maintain consistency across all content.",
     tag: null,
   },
 ]
