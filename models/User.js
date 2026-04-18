@@ -8,6 +8,7 @@ const UserSchema = new mongoose.Schema(
     image: { type: String, default: null },
     provider: { type: String, enum: ['email', 'google'], default: 'email' },
     plan: { type: String, enum: ['free', 'pro', 'agency'], default: 'free' },
+    role: { type: String, enum: ['user', 'admin'], default: 'user' },
   },
   { timestamps: true }
 )
