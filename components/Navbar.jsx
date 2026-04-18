@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useSession, signOut } from 'next-auth/react'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, BarChart2, ChevronDown } from 'lucide-react'
 import Image from 'next/image'
 
 const navLinks = [
@@ -14,9 +14,18 @@ const navLinks = [
   { href: '/contact', label: 'Contact' },
 ]
 
+const analyticsLinks = [
+  { href: '/analytics/creator', label: 'Creator Analyzer' },
+  { href: '/analytics/compare', label: 'Competitor Comparison' },
+  { href: '/analytics/best-time', label: 'Best Time to Post' },
+  { href: '/analytics/fraud-check', label: 'Fraud Detector' },
+  { href: '/tools/roi-calculator', label: 'ROI Calculator' },
+]
+
 export default function Navbar() {
   const { data: session } = useSession()
   const [menuOpen, setMenuOpen] = useState(false)
+  const [analyticsOpen, setAnalyticsOpen] = useState(false)
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-[#1a1a1a] bg-[#080808]/90 backdrop-blur-md">
@@ -45,6 +54,36 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+
+            {/* Analytics Suite dropdown — logged in only */}
+            {session && (
+              <div className="relative">
+                <button
+                  onClick={() => setAnalyticsOpen(!analyticsOpen)}
+                  onBlur={() => setTimeout(() => setAnalyticsOpen(false), 150)}
+                  className="flex items-center gap-1 px-3 py-1.5 text-sm text-[#888] hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200"
+                >
+                  <BarChart2 size={13} />
+                  Analytics
+                  <ChevronDown size={12} className={`transition-transform ${analyticsOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                {analyticsOpen && (
+                  <div className="absolute top-full left-0 mt-1 w-52 bg-[#111] border border-[#1e1e1e] rounded-xl py-1 shadow-xl">
+                    {analyticsLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setAnalyticsOpen(false)}
+                        className="block px-4 py-2 text-sm text-[#888] hover:text-white hover:bg-white/5 transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Auth buttons */}
@@ -112,6 +151,25 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+
+          {session && (
+            <>
+              <div className="px-3 pt-2 pb-1 text-xs text-[#555] font-medium uppercase tracking-wider">
+                Analytics Suite
+              </div>
+              {analyticsLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="block px-3 py-2 text-sm text-[#888] hover:text-white rounded-lg hover:bg-white/5 transition-all"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </>
+          )}
+
           <div className="pt-2 border-t border-[#1a1a1a] flex flex-col gap-2">
             {session ? (
               <>
